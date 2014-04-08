@@ -58,7 +58,7 @@ public class OneShotStepPlugin implements StepPlugin, Describable {
                         .title("Execution Limit")
                         .description("Max number of times to execute this task")
                         .required(false)
-                        .values(0, 1)
+                        .values("0", "1")
                         .build()
                 )
                 .build();
@@ -76,8 +76,8 @@ public class OneShotStepPlugin implements StepPlugin, Describable {
         System.out.println("OneShot step configuration: " + configuration);
         System.out.println("OneShot step num: " + context.getStepNumber());
         System.out.println("OneShot step context: " + context.getStepContext());
-        if (Integer.parseInt(configuration.get("executionLimit")) > context.getNodes().size()) {
-            throw new StepException("executionLimit was > than node count", Reason.InsufficientNodes);
-        }
+//        if (Integer.parseInt(configuration.get("executionLimit").toString()) > context.getNodes().size()) {
+//            throw new StepException("executionLimit was > than node count", Reason.InsufficientNodes);
+//        }
     }
 }
